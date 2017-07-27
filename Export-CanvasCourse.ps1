@@ -81,7 +81,7 @@ function Export-CanvasCourse{
     #If wkhtmltopdf is installed, and clean is false, store PDF's in PDF directory under the destination root
     if ($Check32 -eq $true -or $check64 -eq $true -and $Clean -eq $false){
         New-Item -ItemType Directory -Path $DestinationPath\PDF -Force -ErrorAction SilentlyContinue
-        Get-ChildItem -Path $DestinationPath -Include "*.pdf" -Recurse | Move-Item -Destination "$DestinationPath\PDF"
+        Get-ChildItem -Path $DestinationPath -Include "*.pdf" -Recurse -Depth 0 | Move-Item -Destination "$DestinationPath\PDF"
     }
     #rename zip back to imscc
     Rename-Item -Path $NewArchiveName -NewName $IMSCCPath

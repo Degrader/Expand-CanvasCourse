@@ -75,11 +75,11 @@ function Export-CanvasCourse{
         Write-Host "WKHTMLTOPDF is not installed. PDF's not generated.`nPlease see $DestinationPath for html version."
     }
     #If wkhtmltopdf is installed, and clean is true, remove everything but remaining pdf's
-    if ($Check32 -eq $true -or $check64 -eq $true -and $Clean -eq $true){
-        Remove-Item $DestinationPath -Exclude "*.pdf" -Recurse -Force -ErrorAction SilentlyContinue
+    if (($Check32 -eq $true -or $check64 -eq $true) -and $Clean -eq $true){
+        Get-ChildItem -Path $DestinationPath -Exclude "*.pdf" | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
     }
     #If wkhtmltopdf is installed, and clean is false, store PDF's in PDF directory under the destination root
-    if ($Check32 -eq $true -or $check64 -eq $true -and $Clean -eq $false){
+    if (($Check32 -eq $true -or $check64 -eq $true) -and $Clean -eq $false){
         New-Item -ItemType Directory -Path $DestinationPath\PDF -Force -ErrorAction SilentlyContinue
         Get-ChildItem -Path $DestinationPath\* -Include "*.pdf" | Move-Item -Destination "$DestinationPath\PDF"
     }

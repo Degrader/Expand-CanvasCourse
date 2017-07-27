@@ -77,6 +77,10 @@ function Export-CanvasCourse{
     if ($Check32 -eq $true -or $check64 -eq $true -and $Clean -eq $true){
         Remove-Item $DestinationPath -Exclude "*.pdf" -Recurse -Force -ErrorAction SilentlyContinue
     }
+    if ($Check32 -eq $true -or $check64 -eq $true -and $Clean -eq $false){
+        New-Item -ItemType Directory -Path $DestinationPath\PDF -Force -ErrorAction SilentlyContinue
+        Get-ChildItem -Path $DestinationPath -Include "*.pdf" -Recurse | Move-Item -Destination "$DestinationPath\PDF"
+    }
     #rename zip back to imscc
     Rename-Item -Path $NewArchiveName -NewName $IMSCCPath
 }

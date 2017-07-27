@@ -1,5 +1,5 @@
 # Export-CanvasCourse
-Takes a Canvas '.imscc' file, and generates either a fixed HTML structure, or exports to pdf with wkhtmltopdf.
+Takes a Canvas '.imscc' file, and generates either a repaired HTML structure, or exports to pdf with wkhtmltopdf.
 
 
 A parameter for the function called 'Clean' will default to $true unless otherwise specified. This means that if wkhtmltopdf is

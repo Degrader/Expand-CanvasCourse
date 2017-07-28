@@ -14,7 +14,7 @@ in the destination directory and will do one of two things:
   If wkhtmltopdf is installed in it's default installation path, you will be left with PDF's for each module in your Canvas Course.
   If wkhtmltopdf is not installed, you will be left with a file structure including HTML documents with your course content.
 
-Export-CanvasCourse -IMSCCPath C:\Users\Person\Desktop\example_course.imscc -DestinationPath "C:\temp\Example Course"
+Export-CanvasCourse -Path C:\Users\Person\Desktop\example_course.imscc -Destination "C:\temp\Example Course"
 
 
 Example:

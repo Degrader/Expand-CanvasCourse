@@ -109,17 +109,18 @@ function Export-CanvasCourse{
     }
 }
 
-#The Script bit :P########################################################################
+#The script bit :P########################################################################
 
 #Get input file
 $inputFile = Get-FileName "$env:USERPROFILE"
+if ($inputFile -eq ""){exit}
 
 #Get output directory
 $outputDirectory = Set-FolderName "$env:USERPROFILE"
+if ($outputDirectory -eq ""){exit}
 
 if ($Check32 -eq $true -or $Check64 -eq $true){
     $CleanContent = [System.Windows.forms.MessageBox]::Show('Remove extra course matterial? Selecting yes removes all of the original course matterial, such as videos and picture (Leaves only PDF files) Selecting leaves all matterial, as well as the new PDFs.','Remove extra content...','YesNo')
 }
 
 Export-CanvasCourse $inputFile $outputDirectory $CleanContent
-$test = New-Object System.Windows.Forms.MessageBox

@@ -32,11 +32,11 @@
 
 Function Get-FileName($initialDirectory)
 {
-    [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") | Out-Null
+    #[System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") | Out-Null
     
     $OpenFileDialog = New-Object System.Windows.Forms.OpenFileDialog
     $OpenFileDialog.initialDirectory = $initialDirectory
-    $OpenFileDialog.Title = "IMSCC Location"
+    $OpenFileDialog.Title = "IMSCC File Location..."
     $OpenFileDialog.filter = "IMSCC (*.imscc)| *.imscc"
     $OpenFileDialog.ShowDialog() | Out-Null
     $OpenFileDialog.filename
@@ -45,6 +45,7 @@ Function Get-FileName($initialDirectory)
 function Set-FolderName($initialDirectory){
     $SaveFileDialog = New-Object System.Windows.Forms.FolderBrowserDialog
     $SaveFileDialog.ShowNewFolderButton = $true
+    $SaveFileDialog.Description = "Select destination location for content"
     $SaveFileDialog.ShowDialog() | Out-Null
     $SaveFileDialog.SelectedPath
 }

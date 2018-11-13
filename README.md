@@ -4,3 +4,4 @@ Intended to take a Canvas '.imscc' file, and generate either a repaired HTML str
 Major update from previous version. This version does not have a standalone module anymore. It is all in the GUI, which is all in one form now!
 
 The included .exe is the PowerShell document compiled in Sapien PowerShell Studio.
+![alt text] (https://github.com/Degrader/Expand-CanvasCourse/blob/master/ExpandCanvasCourse.png)
